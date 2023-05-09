@@ -1,26 +1,42 @@
 package io.codelex.typesandvariables.practice;
 
+import java.text.DecimalFormat;
+
 public class MoreVariablesAndPrinting {
     public static void main(String[] args) {
-        String myName, myEyes, myTeeth, myHair;
-        int myAge, myHeight, myWeight;
+        String name;
+        String eyes;
+        String teeth;
+        String hair;
+        int age;
+        int heightInInches;
+        int weightInPounds;
+        double heightInCM;
+        double weightInKG;
 
-        myName = "Zed A. Shaw";
-        myAge = 35;
-        myHeight = 74;  // inches
-        myWeight = 180; // lbs
-        myEyes = "Blue";
-        myTeeth = "White";
-        myHair = "Brown";
+        double INCH_TO_CM = 2.54D;
+        double POUNDS_TO_KG = 0.453592D;
 
-        System.out.println("Let's talk about " + myName + ".");
-        System.out.println("He's " + myHeight + " inches tall.");
-        System.out.println("He's " + myWeight + " pounds heavy.");
+        name = "Zed A. Shaw";
+        age = 35;
+        heightInInches = 74;
+        heightInCM = heightInInches * INCH_TO_CM;
+        weightInPounds = 180;
+        weightInKG = weightInPounds * POUNDS_TO_KG;
+        eyes = "Blue";
+        teeth = "White";
+        hair = "Brown";
+
+        DecimalFormat decimalFormat = new DecimalFormat("##.##");
+
+        System.out.println("Let's talk about " + name + ".");
+        System.out.println("He's " + heightInCM + " centimeters tall.");
+        System.out.println("He's " + weightInKG + " kilograms heavy.");
         System.out.println("Actually, that's not too heavy.");
-        System.out.println("He's got " + myEyes + " eyes and " + myHair + " hair.");
-        System.out.println("His teeth are usually " + myTeeth + " depending on the coffee.");
+        System.out.println("He's got " + eyes + " eyes and " + hair + " hair.");
+        System.out.println("His teeth are usually " + teeth + " depending on the coffee.");
 
-        System.out.println("If I add " + myAge + ", " + myHeight + ", and " + myWeight
-                + " I get " + (myAge + myHeight + myWeight) + ".");
+        System.out.printf("If I add %d, %.2f, and %.2f I get %.2f.%n",
+                age, heightInCM, weightInKG, (age + heightInCM + weightInKG));
     }
 }
