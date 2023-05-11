@@ -1,5 +1,8 @@
 package io.codelex.flowcontrol.practice;
 
+import org.apache.commons.lang3.math.NumberUtils;
+
+import java.util.Collection;
 import java.util.Scanner;
 
 public class LargestNumber {
@@ -17,12 +20,13 @@ public class LargestNumber {
         System.out.print("Input the 3rd number: ");
         int num3 = in.nextInt();
 
-        /*
-        todo - expected output:
-        Input the 1st number: 25
-        Input the 2nd number: 78
-        Input the 3rd number: 87
-         */
+        int[] nums = {num1, num2, num3};
+
+        System.out.println("Input the 1st number: " + num1);
+        System.out.println("Input the 2st number: " + num2);
+        System.out.println("Input the 3st number: " + num3);
+
+        System.out.println("Largest of 3 numbers is: " + NumberUtils.max(nums));
     }
 
 }
