@@ -26,9 +26,7 @@ public class Piglet {
                 if (choice.equals("n")) {
                     System.out.println("Your score is: " + score);
                     break;
-                } else if (choice.equals("y")) {
-                    continue;
-                } else {
+                } else if (!choice.equals("y")) {
                     System.out.println("Please input only 'y' or 'n'!");
                 }
             }

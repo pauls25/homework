@@ -20,41 +20,15 @@ public class PhoneKeyPad {
         String numberString = "";
         for (String s : splitString) {
             switch (s) {
-                case "A":
-                case "B":
-                case "C":
-                    numberString = numberString.concat("2");
-                case "D":
-                case "E":
-                case "F":
-                    numberString = numberString.concat("3");
-                case "G":
-                case "H":
-                case "I":
-                    numberString = numberString.concat("4");
-                case "J":
-                case "K":
-                case "L":
-                    numberString = numberString.concat("5");
-                case "M":
-                case "N":
-                case "O":
-                    numberString = numberString.concat("6");
-                case "P":
-                case "R":
-                case "S":
-                    numberString = numberString.concat("7");
-                case "T":
-                case "U":
-                case "V":
-                    numberString = numberString.concat("8");
-                case "W":
-                case "X":
-                case "Y":
-                case "Z":
-                    numberString = numberString.concat("9");
-                default:
-                    System.out.println("bad letter inputted");
+                case "A", "B", "C" -> numberString = numberString.concat("2");
+                case "D", "E", "F" -> numberString = numberString.concat("3");
+                case "G", "H", "I" -> numberString = numberString.concat("4");
+                case "J", "K", "L" -> numberString = numberString.concat("5");
+                case "M", "N", "O" -> numberString = numberString.concat("6");
+                case "P", "R", "S" -> numberString = numberString.concat("7");
+                case "T", "U", "V" -> numberString = numberString.concat("8");
+                case "W", "X", "Y", "Z" -> numberString = numberString.concat("9");
+                default -> System.out.println("bad letter inputted");
             }
         }
         System.out.println(numberString);
