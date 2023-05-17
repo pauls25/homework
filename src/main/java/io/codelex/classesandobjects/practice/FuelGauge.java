@@ -8,11 +8,11 @@ public class FuelGauge {
     }
 
     public double getCurrentFuelInLiters() {
-        return currentFuelInLiters;
+        return (double) Math.round(currentFuelInLiters * 100) / 100;
     }
 
     public void printCurrentFuelInLiters() {
-        System.out.println("Current fuel in liter: " + currentFuelInLiters);
+        System.out.println("Current fuel in liter: " + getCurrentFuelInLiters());
     }
 
     public void fuelUpCar(double amount) {
