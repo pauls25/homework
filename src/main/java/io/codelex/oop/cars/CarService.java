@@ -1,6 +1,8 @@
 package io.codelex.oop.cars;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class CarService {
@@ -11,11 +13,11 @@ public class CarService {
     }
 
     public void addCarToCarList(Car car) {
-        this.carList.add(car);
+        this.getCarList().add(car);
     }
 
     public void removeCarFromCarList(Car car) {
-        this.carList.remove(car);
+        this.getCarList().remove(car);
     }
 
     public List<Car> getCarList() {
@@ -72,10 +74,6 @@ public class CarService {
         return carsWithThreeOrMoreManufacturers;
     }
 
-    public List<Car> sortByField(String field) {
-        return carList;
-    }
-
     public boolean isCarOnList(Car otherCar) {
         return carList.contains(otherCar);
     }
@@ -90,5 +88,65 @@ public class CarService {
             }
         }
         return manufacturedBy;
+    }
+
+    /**
+     * @compareMethod - write as a String <,>, <=,> =, =,! =
+     */
+    public List<Car> manufacturedByYear(Manufacturer manufacturer, int year, String compareMethod) {
+
+        List<Car> carsMadeByManufacture = new ArrayList<>(this.carsManufacturedBy(manufacturer));
+        List<Car> resultingList = new ArrayList<>();
+
+        for (Car car : carsMadeByManufacture) {
+
+            switch (compareMethod) {
+                case "<":
+                    if (car.getYearOfManufacture() < year) {
+                        resultingList.add(car);
+                    }
+                    break;
+                case ">":
+                    if (car.getYearOfManufacture() > year) {
+                        resultingList.add(car);
+                    }
+                    break;
+                case "<=":
+                    if (car.getYearOfManufacture() <= year) {
+                        resultingList.add(car);
+                    }
+                    break;
+                case ">=":
+                    if (car.getYearOfManufacture() >= year) {
+                        resultingList.add(car);
+                    }
+                    break;
+                case "=":
+                    if (car.getYearOfManufacture() == year) {
+                        resultingList.add(car);
+                    }
+                    break;
+                case "!=":
+                    if (car.getYearOfManufacture() != year) {
+                        resultingList.add(car);
+                    }
+                    break;
+            }
+        }
+        return resultingList;
+    }
+
+    /**
+     * @param ordering - can be either "ascending" or "descending"
+     * @return
+     */
+    public List<Car> sortByPrice(String ordering) {
+        List<Car> list = this.getCarList();
+        if (ordering.equals("ascending")) {
+            list.sort(Comparator.comparing(Car::getName));
+        } else if (ordering.equals("descending")) {
+            list.sort(Comparator.comparing(Car::getPrice).reversed());
+        }
+        return list;
     }
 }

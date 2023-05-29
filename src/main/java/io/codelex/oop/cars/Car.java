@@ -2,6 +2,7 @@ package io.codelex.oop.cars;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -65,9 +66,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
-                "name='" + name + '\'' +
-                ", model='" + model + '\'' +
-                '}';
+        return "'" + name + " model: " + model + "'";
     }
 }
