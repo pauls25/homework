@@ -1,5 +1,7 @@
 package io.codelex.collections.practice;
 
+import java.util.*;
+
 /**
  * Origination:
  * Audi -> Germany
@@ -13,10 +15,22 @@ public class Exercise1 {
     public static void main(String[] args) {
         String[] array = {"Audi", "BMW", "Honda", "Mercedes", "VolksWagen", "Mercedes", "Tesla"};
 
-        //todo - replace array with an ArrayList and print out the results
+        List<String> listArray = Arrays.asList(array);
+        System.out.println(listArray);
 
-        //todo - replace array with a HashSet and print out the results
+        Set<String> myHashSet = new HashSet<>(listArray);
+        System.out.println(myHashSet);
 
-        //todo - replace array with a HashMap (use brand as key and origination as value) an print out the results
+        Map<String, String> myHashMap = new HashMap<String, String>();
+        
+        String[] brands = {"Audi", "BMW", "Honda", "Mercedes", "VolksWagen", "Tesla"};
+        String[] origins = {"Germany", "Germany", "Japan", "Germany", "Germany", "USA"};
+
+        for (int i = 0; i < brands.length; i++) {
+            String brand = brands[i];
+            String origin = origins[i];
+            myHashMap.put(brand, origin);
+        }
+        System.out.println(myHashMap);
     }
 }
