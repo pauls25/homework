@@ -1,15 +1,27 @@
 package io.codelex.oop.summary.generics;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class Printer {
+public class Printer<T> {
 
-    //Fix this class so that any object, not only BigDecimal can be printed
-    //Test the functionality
 
-    private final BigDecimal thingToPrint;
+    private final T thingToPrint;
 
-    public Printer(BigDecimal thingToPrint) {
+    public static void main(String[] args) {
+        Printer<Integer> integerPrinter = new Printer<>(Integer.valueOf("1"));
+        Printer<String> stringPrinter = new Printer<>("1");
+        List<Integer> integerList = new ArrayList<Integer>(Arrays.asList(12, 3, 4));
+        Printer<List<Integer>> listPrinter = new Printer<>(integerList);
+
+        integerPrinter.print();
+        stringPrinter.print();
+        listPrinter.print();
+    }
+
+    public Printer(T thingToPrint) {
         this.thingToPrint = thingToPrint;
     }
 
@@ -17,7 +29,7 @@ public class Printer {
         System.out.println(thingToPrint);
     }
 
-    public BigDecimal getThingToPrint() {
+    public T getThingToPrint() {
         return thingToPrint;
     }
 }
