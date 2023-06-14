@@ -1,9 +1,5 @@
 package io.codelex.oop.summary.generics;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class Printer<T> {
 
@@ -18,7 +14,4 @@ public class Printer<T> {
         System.out.println(thingToPrint);
     }
 
-    public T getThingToPrint() {
-        return thingToPrint;
-    }
 }
