@@ -20,7 +20,7 @@ public class Basket<T> {
     public void addToBasket(T item) throws BasketFullException {
         if (this.itemCount < MAX_ITEM_COUNT) {
 
-            this.itemCount++;
+            this.itemCount = contents.size();
             this.contents.add(item);
         } else {
             throw new BasketFullException();
@@ -32,7 +32,7 @@ public class Basket<T> {
         if (this.itemCount > MIN_ITEM_COUNT) {
 
             this.contents.remove(item);
-            this.itemCount--;
+            this.itemCount = contents.size();
         } else {
             throw new BasketEmptyException();
         }
