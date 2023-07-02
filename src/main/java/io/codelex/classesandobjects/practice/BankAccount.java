@@ -7,12 +7,29 @@ public class BankAccount {
     public String name;
     public double balance;
 
+
+    public BankAccount(String name, double balance) {
+        this.name = name;
+        this.balance = balance;
+    }
+
     public final void deposit(double amount) {
-        //todo
+        this.balance += amount;
     }
 
     public final void withdraw(double amount) {
-        //todo
+        this.balance -= amount;
     }
 
+    @Override
+    public String toString() {
+        String balanceString;
+
+        if (balance < 0) {
+            balanceString = name + ", -$" + balance * -1;
+        } else {
+            balanceString = name + ", " + "$" + balance;
+        }
+        return balanceString;
+    }
 }
