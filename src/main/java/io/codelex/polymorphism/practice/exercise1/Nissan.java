@@ -1,10 +1,10 @@
 package io.codelex.polymorphism.practice.exercise1;
 
-public class Lexus implements Car, Boost {
+public class Nissan implements Car {
     private Integer currentSpeed = 0;
     private final String carName;
 
-    public Lexus(String carName) {
+    public Nissan(String carName) {
         this.carName = carName;
     }
 
@@ -15,22 +15,16 @@ public class Lexus implements Car, Boost {
 
     @Override
     public void speedUp() {
-        currentSpeed += 8;
+        currentSpeed += 9;
     }
 
     @Override
     public void slowDown() {
-        currentSpeed -= 8;
+        currentSpeed -= 9;
     }
 
     @Override
     public String showCurrentSpeed() {
         return currentSpeed.toString();
     }
-
-    @Override
-    public void useNitrousOxideEngine() {
-        currentSpeed = currentSpeed + 30;
-    }
-
 }
